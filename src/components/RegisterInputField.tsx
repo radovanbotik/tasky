@@ -1,12 +1,5 @@
 import React, { ReactNode } from "react";
 
-type PropTypes = {
-  name: string;
-  type: string;
-  value: string;
-  children?: string;
-};
-
 const RegisterInputField = ({
   name,
   type,
