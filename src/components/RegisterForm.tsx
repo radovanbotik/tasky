@@ -9,7 +9,7 @@ import RegisterInputField from "./RegisterInputField";
 YupPassword(Yup); // extend yup
 
 const RegisterForm = () => {
-  const { loginUser, registerUser, toggleMembership } = useAppState();
+  const { loginUser, registerUser } = useAppState();
   const [member, setMember] = useState(false);
 
   const { values, touched, errors, handleBlur, handleChange, handleSubmit } =
