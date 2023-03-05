@@ -4,7 +4,7 @@ import { useAppState } from "../context/AppState";
 import { TabPanel, Loader, TabButton } from "../components";
 
 type TaskType = {
-  id: number;
+  id: string;
   name: string;
   desc: string;
   date: string;

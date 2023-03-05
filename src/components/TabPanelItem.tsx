@@ -3,13 +3,13 @@ import Switch from "./Switch";
 import DeleteButton from "./DeleteButton";
 import { useAppState } from "../context/AppState";
 
-type Props = {
+interface Props {
   name: string;
   id: number;
   desc: string;
   date: string;
   active: boolean;
-};
+}
 
 const TabPanelItem = ({ name, id, desc, date, active }: Props) => {
   const { deleteTask } = useAppState();

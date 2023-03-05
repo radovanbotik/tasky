@@ -1,6 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-const Loader = ({ children }) => {
+type PropTypes = {
+  children: ReactNode;
+};
+
+const Loader = ({ children }: PropTypes) => {
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">

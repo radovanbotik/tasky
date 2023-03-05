@@ -18,8 +18,6 @@ import {
   REGISTER_USER_FAIL,
 } from "./actions";
 
-const Context = React.createContext();
-
 const saveUser = user => {
   localStorage.setItem("user", JSON.stringify(user));
 };
@@ -41,6 +39,7 @@ const initialState = {
   alert: false,
   alert_message: "",
 };
+const Context = React.createContext(initialState);
 
 const AppState = ({ children }) => {
   const URL = "https://64034ff5302b5d671c4c149c.mockapi.io/";

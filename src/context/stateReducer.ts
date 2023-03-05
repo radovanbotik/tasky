@@ -17,33 +17,21 @@ import {
 
 type TaskType = {
   name: string;
-  id: number;
+  id: string;
   desc: string;
   date: string;
   active: boolean;
 };
-type userType = {
-  user: string;
-};
 
-type StateType = {
+interface State {
   pending: boolean;
   all_tasks: TaskType[];
-  user: userType;
+  user: string;
   alert: boolean;
   alert_message: string;
-};
+}
 
-type PayloadType = {
-  id: number;
-};
-
-type ActionType = {
-  type: string;
-  payload: PayloadType;
-};
-
-const reducer = (state: StateType, action: ActionType) => {
+const reducer = (state: State, action) => {
   if (action.type === CREATE_NEW_TASK_INIT) {
     return {
       ...state,
@@ -55,7 +43,6 @@ const reducer = (state: StateType, action: ActionType) => {
       ...state,
       pending: false,
       all_tasks: [...state.all_tasks, action.payload],
-      // active_tasks: [...state.active_tasks, action.payload],
       alert: true,
       alert_message: "New assignment has been arranged.",
     };
