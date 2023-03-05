@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "task": "coding",
+      "description": "make a to do app with react and tailwind",
+      "date": "2/3/2023",
+      "active": true,
+      "completed": false
+    },
+    {
+      "id": 2,
+      "task": "exercise",
+      "description": "lift weights to stay in shape and good health",
+      "date": "4/3/2023",
+      "active": true,
+      "completed": false
+    },
+    {
+      "id": 3,
+      "task": "make dinner",
+      "description": "make a tasty dinner for myself",
+      "date": "8/3/2023",
+      "active": true,
+      "completed": false
+    }
+  ]
+}
