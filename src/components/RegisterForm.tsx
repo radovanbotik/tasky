@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import YupPassword from "yup-password";
 import { useAppState } from "../context/AppState";
 import SubmitButton from "./SubmitButton";
 import RegisterInputField from "./RegisterInputField";
-import { useNavigate } from "react-router-dom";
 
 YupPassword(Yup); // extend yup
 
 const RegisterForm = () => {
-  const { loginUser, registerUser, member, toggleMembership } = useAppState();
+  const { loginUser, registerUser, toggleMembership } = useAppState();
+  const [member, setMember] = useState(false);
+
   const { values, touched, errors, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
@@ -30,9 +31,11 @@ const RegisterForm = () => {
         registerUser(values);
       },
     });
-
   return (
     <form className="mt-8  space-y-6" onSubmit={handleSubmit}>
+      <h2 className="mb-2 text-center text-2xl font-semibold">
+        {member ? "Register" : "Login"}
+      </h2>
       <div className="space-y-2 rounded-md shadow-sm">
         <RegisterInputField
           name="email"
@@ -57,20 +60,19 @@ const RegisterForm = () => {
           Your Password
         </RegisterInputField>
       </div>
+      <SubmitButton>{member ? "Register" : "Login"}</SubmitButton>
       <div className="flex items-center gap-1 text-sm">
         <p className="ml-2 block text-sm text-gray-900">
           {member ? "Are you member already?" : "I don't have an account yet."}
         </p>
         <button
           className="font-medium text-indigo-600 hover:text-indigo-500"
-          onClick={toggleMembership}
+          onClick={() => setMember(prev => !prev)}
           type="button"
         >
           {member ? "Log in." : "Register"}
         </button>
       </div>
-
-      <SubmitButton>{member ? "Register" : "Login"}</SubmitButton>
     </form>
   );
 };

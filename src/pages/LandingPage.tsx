@@ -6,7 +6,7 @@ import { Modal } from "../components/";
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const { user, member } = useAppState();
+  const { user } = useAppState();
 
   useEffect(() => {
     if (user) {
@@ -22,9 +22,6 @@ const LandingPage = () => {
             <Intro />
           </div>
           <div className="py-24 px-10">
-            <h2 className="mb-2 text-center text-2xl font-semibold">
-              {member ? "Register" : "Login"}
-            </h2>
             <RegisterForm />
           </div>
         </div>

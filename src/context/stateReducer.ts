@@ -136,13 +136,6 @@ const reducer = (state, action) => {
     };
   }
 
-  if (action.type === TOGGLE_MEMBERSHIP) {
-    return {
-      ...state,
-      member: !state.member,
-    };
-  }
-
   throw new Error("Invalid action Type");
 };
 

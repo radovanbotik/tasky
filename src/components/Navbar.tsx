@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAppState } from "../context/AppState";
 import NavigationLink from "./NavigationLink";
 const Navbar = () => {
-  const { user } = useAppState();
+  const { retrieveUser } = useAppState();
   return (
     <div className="navbar  bg-base-100">
       <div className="flex-1">
@@ -51,9 +51,11 @@ const Navbar = () => {
                   className="btn-ghost btn-circle avatar btn bg-fuchsia-400"
                 >
                   <div className="w-10 rounded-full">
-                    <p className="grid h-full w-full place-content-center text-center text-xl font-bold">
-                      {user.charAt(1)}
-                    </p>
+                    {retrieveUser() && (
+                      <p className="grid h-full w-full place-content-center text-center text-xl font-bold">
+                        {retrieveUser().charAt(1)}
+                      </p>
+                    )}
                   </div>
                 </label>
                 <ul

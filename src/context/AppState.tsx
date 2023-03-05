@@ -40,7 +40,6 @@ const initialState = {
   user: retrieveUser(),
   alert: false,
   alert_message: "",
-  member: false,
 };
 
 const AppState = ({ children }) => {
@@ -60,10 +59,6 @@ const AppState = ({ children }) => {
   };
 
   const logoutUser = () => {};
-
-  const toggleMembership = () => {
-    dispatch({ type: TOGGLE_MEMBERSHIP });
-  };
 
   const getUsers = async () => {
     const resp = await axios({
@@ -91,7 +86,6 @@ const AppState = ({ children }) => {
   const loginUser = async userInfo => {
     const users = await getUsers(userInfo);
     const user = await users.find(user => user.email === userInfo.email);
-    console.log(user);
     if (user) {
       dispatch({ type: LOGIN_USER_SUCCESS, payload: user });
       saveUser(user.email);
@@ -161,7 +155,7 @@ const AppState = ({ children }) => {
         toggleStatus,
         deleteTask,
         closeModal,
-        toggleMembership,
+        retrieveUser,
         loginUser,
         registerUser,
       }}
