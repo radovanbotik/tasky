@@ -15,7 +15,35 @@ import {
   REGISTER_USER_FAIL,
 } from "./actions";
 
-const reducer = (state, action) => {
+type TaskType = {
+  name: string;
+  id: number;
+  desc: string;
+  date: string;
+  active: boolean;
+};
+type userType = {
+  user: string;
+};
+
+type StateType = {
+  pending: boolean;
+  all_tasks: TaskType[];
+  user: userType;
+  alert: boolean;
+  alert_message: string;
+};
+
+type PayloadType = {
+  id: number;
+};
+
+type ActionType = {
+  type: string;
+  payload: PayloadType;
+};
+
+const reducer = (state: StateType, action: ActionType) => {
   if (action.type === CREATE_NEW_TASK_INIT) {
     return {
       ...state,
@@ -70,7 +98,7 @@ const reducer = (state, action) => {
     const clickedTaskId = action.payload.id;
     const clickedTask = state.all_tasks.find(
       task => task.id === clickedTaskId
-    ).active;
+    )?.active;
 
     return {
       ...state,

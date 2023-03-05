@@ -28,18 +28,6 @@ const Dropdown = () => {
     },
   ];
 
-  //   const menuItem = routes.map(route => (
-  //     <div className="px-1 py-1 " key={route.id}>
-  //       <Menu.Item
-  //         as={Link}
-  //         to={route.path}
-  //         className="ui-notactive:text-black group flex w-full items-center rounded-md px-2 py-2 text-sm ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white"
-  //       >
-  //         {route.name}
-  //       </Menu.Item>
-  //     </div>
-  //   ));
-
   const menuItem = routes.map(route => (
     <div className="px-1 py-1 " key={route.id}>
       <Menu.Item>

@@ -2,7 +2,11 @@ import React from "react";
 import { useAppState } from "../context/AppState";
 import { Navigate } from "react-router-dom";
 
-const Protected = ({ children }) => {
+type PropTypes = {
+  children: JSX.Element;
+};
+
+const Protected = ({ children }: PropTypes) => {
   const { user } = useAppState();
 
   if (!user) {

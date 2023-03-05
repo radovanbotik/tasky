@@ -1,15 +1,11 @@
 import React, { ReactNode } from "react";
 import { Tab } from "@headlessui/react";
-
+import { classNames } from "../utility/classNames";
 type Props = {
   children: ReactNode;
 };
 
 const TabButton = ({ children }: Props) => {
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-  }
-
   return (
     <Tab
       className={({ selected }) =>

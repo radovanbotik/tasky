@@ -1,6 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-const SubmitButton = ({ children }) => {
+type PropTypes = {
+  children: ReactNode;
+};
+
+const SubmitButton = ({ children }: PropTypes) => {
   return (
     <button
       type="submit"

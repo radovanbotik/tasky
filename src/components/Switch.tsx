@@ -2,7 +2,12 @@ import React from "react";
 import { Switch as Toggle } from "@headlessui/react";
 import { useAppState } from "../context/AppState";
 
-const Switch = ({ enabled, id }) => {
+type PropTypes = {
+  id: number;
+  enabled: boolean;
+};
+
+const Switch = ({ enabled, id }: PropTypes) => {
   const { toggleStatus } = useAppState();
 
   return (

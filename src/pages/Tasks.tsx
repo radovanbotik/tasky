@@ -3,11 +3,19 @@ import { Tab } from "@headlessui/react";
 import { useAppState } from "../context/AppState";
 import { TabPanel, Loader, TabButton } from "../components";
 
+type TaskType = {
+  id: number;
+  name: string;
+  desc: string;
+  date: string;
+  active: boolean;
+};
+
 const Tasks = () => {
   const { fetchAllTasks, all_tasks, pending } = useAppState();
 
-  const completed_tasks = all_tasks.filter(task => !task.active);
-  const active_tasks = all_tasks.filter(task => task.active);
+  const completed_tasks = all_tasks.filter((task: TaskType) => !task.active);
+  const active_tasks = all_tasks.filter((task: TaskType) => task.active);
 
   useEffect(() => {
     fetchAllTasks();

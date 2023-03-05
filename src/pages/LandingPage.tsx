@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Footer, RegisterForm, Form, Intro } from "../components";
+import { RegisterForm, Intro } from "../components";
 import { useNavigate } from "react-router-dom";
 import { useAppState } from "../context/AppState";
 import { Modal } from "../components/";

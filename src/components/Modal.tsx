@@ -79,7 +79,7 @@ const Modal = () => {
         </Dialog>
       </Transition>
     </>,
-    document.getElementById("portal")
+    document.getElementById("portal") as HTMLElement
   );
 };
 

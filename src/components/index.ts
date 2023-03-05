@@ -1,6 +1,5 @@
 import Navbar from "./Navbar";
 import Dropdown from "./Dropdown";
-import Footer from "./Footer";
 import TabPanel from "./TabPanel";
 import Switch from "./Switch";
 import Modal from "./Modal";
@@ -15,11 +14,14 @@ import NavigationLink from "./NavigationLink";
 import TabButton from "./TabButton";
 import TabPanelItem from "./TabPanelItem";
 import DeleteButton from "./DeleteButton";
+import Logo from "./Logo";
+import ProfileDropdown from "./ProfileDropdown";
+import ActionsDropdown from "./ActionsDropdown";
+import SearchInput from "./SearchInput";
 
 export {
   Navbar,
   Dropdown,
-  Footer,
   TabPanel,
   Switch,
   Modal,
@@ -34,4 +36,8 @@ export {
   TabButton,
   TabPanelItem,
   DeleteButton,
+  Logo,
+  ProfileDropdown,
+  ActionsDropdown,
+  SearchInput,
 };
