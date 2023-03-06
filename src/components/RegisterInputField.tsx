@@ -1,5 +1,15 @@
 import React, { ReactNode } from "react";
 
+type PropTypes = {
+  name: string;
+  type: string;
+  handleChange: any;
+  handleBlur: any;
+  value: string;
+  touched: any;
+  errors: any;
+  children: string;
+};
 const RegisterInputField = ({
   name,
   type,
@@ -9,7 +19,7 @@ const RegisterInputField = ({
   touched,
   errors,
   children,
-}) => {
+}: PropTypes) => {
   return (
     <div>
       {children && (
