@@ -39,6 +39,11 @@ const ContextProvider = ({ children }: Props) => {
     }
   };
 
+  const logOut = () => {
+    dispatch({ type: "LOGOUT_USER" });
+    removeUser();
+  };
+
   const closeModal = () => {
     dispatch({ type: "CLOSE_MODAL" });
   };
@@ -63,7 +68,7 @@ const ContextProvider = ({ children }: Props) => {
       });
       const user = resp.data;
       dispatch({ type: "REGISTER_USER_SUCCESS", payload: user });
-      saveUser(user.email);
+      saveUser(user);
     } catch (error) {
       dispatch({ type: "REGISTER_USER_FAIL" });
     }
@@ -74,9 +79,12 @@ const ContextProvider = ({ children }: Props) => {
     const user = users.find(
       (user: { email: string }) => user.email === userInfo.email
     );
-    if (user) {
+    const pass = users.find(
+      (user: { password: string }) => user.password === userInfo.password
+    );
+    if (user && pass) {
       dispatch({ type: "LOGIN_USER_SUCCESS", payload: user });
-      saveUser(user.email);
+      saveUser(user);
       return;
     }
     dispatch({ type: "LOGIN_USER_FAIL" });
@@ -145,6 +153,7 @@ const ContextProvider = ({ children }: Props) => {
         loginUser,
         registerUser,
         closeModal,
+        logOut,
       }}
     >
       {children}

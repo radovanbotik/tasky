@@ -22,7 +22,8 @@ export type ActionType =
       type: "REGISTER_USER_SUCCESS";
       payload: { email: string; id: string; password: string };
     }
-  | { type: "REGISTER_USER_FAIL" };
+  | { type: "REGISTER_USER_FAIL" }
+  | { type: "LOGOUT_USER" };
 
 const reducer = (state: GlobalState, action: ActionType) => {
   switch (action.type) {
@@ -141,6 +142,15 @@ const reducer = (state: GlobalState, action: ActionType) => {
         alert_message: "We weren't able to register you at the time.",
       };
     }
+
+    case "LOGOUT_USER": {
+      return {
+        ...state,
+        alert: true,
+        alert_message: "You have been log out.",
+      };
+    }
+
     default:
       return state;
   }

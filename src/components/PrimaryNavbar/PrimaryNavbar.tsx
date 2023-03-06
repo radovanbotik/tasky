@@ -1,10 +1,9 @@
 import React from "react";
 import Logo from "./Logo";
-import ProfileDropdown from "./ProfileDropdown";
-import ActionsDropdown from "./ActionsDropdown";
 import SearchInput from "./SearchInput";
+import ProfileDropdown from "./ProfileDropdown";
 
-const Navbar = () => {
+const PrimaryNavbar = () => {
   return (
     <div className="navbar  bg-base-100">
       <Logo>Tasky</Logo>
@@ -12,9 +11,6 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">
           <li>
             <SearchInput />
-          </li>
-          <li tabIndex={0}>
-            <ActionsDropdown />
           </li>
           <li>
             <ProfileDropdown />
@@ -25,4 +21,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default PrimaryNavbar;

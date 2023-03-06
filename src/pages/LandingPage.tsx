@@ -7,7 +7,8 @@ import { ApplicationContext } from "../context/ApplicationContext";
 const LandingPage = () => {
   const navigate = useNavigate();
   const { globalState } = useContext(ApplicationContext);
-  const { user } = globalState;
+  // const { user } = globalState;
+  const user = localStorage.getItem("user");
 
   useEffect(() => {
     if (user) {

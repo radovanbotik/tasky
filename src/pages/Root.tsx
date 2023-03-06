@@ -1,13 +1,24 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Navbar, Modal } from "../components";
+import { Modal, SecondaryNavbar, PrimaryNavbar } from "../components";
+import { Sidebar } from "../components/Sidebar";
 
 const Root = () => {
   return (
     <div className=" min-h-screen">
-      <Navbar />
+      <PrimaryNavbar />
       <Modal />
-      <Outlet />
+
+      <div>
+        <div className="drawer">
+          <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content flex flex-col">
+            <SecondaryNavbar />
+            <Outlet />
+          </div>
+          <Sidebar />
+        </div>
+      </div>
     </div>
   );
 };

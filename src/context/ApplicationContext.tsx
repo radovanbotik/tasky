@@ -15,6 +15,7 @@ export type globalStateProps = {
   loginUser: (userInfo: { email: string; password: string }) => void;
   registerUser: (userInfo: { email: string; password: string }) => void;
   closeModal: () => void;
+  logOut: () => void;
 };
 
 export const ApplicationContext = createContext<globalStateProps>(

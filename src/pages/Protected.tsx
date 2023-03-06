@@ -8,7 +8,8 @@ type PropTypes = {
 
 const Protected = ({ children }: PropTypes) => {
   const { globalState } = useContext(ApplicationContext);
-  const { user } = globalState;
+  // const { user } = globalState;
+  const user = localStorage.getItem("user");
 
   if (!user) {
     return <Navigate to="/"></Navigate>;

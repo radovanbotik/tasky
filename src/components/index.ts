@@ -1,10 +1,7 @@
-import Navbar from "./Navbar";
 import Dropdown from "./Dropdown";
 import TabPanel from "./TabPanel";
 import Switch from "./Switch";
 import Modal from "./Modal";
-import InputField from "./InputField";
-import Form from "./Form";
 import RegisterForm from "./RegisterForm";
 import SubmitButton from "./SubmitButton";
 import RegisterInputField from "./RegisterInputField";
@@ -14,19 +11,18 @@ import NavigationLink from "./NavigationLink";
 import TabButton from "./TabButton";
 import TabPanelItem from "./TabPanelItem";
 import DeleteButton from "./DeleteButton";
-import Logo from "./Logo";
-import ProfileDropdown from "./ProfileDropdown";
-import ActionsDropdown from "./ActionsDropdown";
-import SearchInput from "./SearchInput";
+import Logo from "./PrimaryNavbar/Logo";
+import ProfileDropdown from "./PrimaryNavbar/ProfileDropdown";
+import SearchInput from "./PrimaryNavbar/SearchInput";
+import SecondaryNavbar from "./SecondaryNavbar/SecondaryNavbar";
+import { Template } from "./AssignmentForm";
+import { PrimaryNavbar } from "./PrimaryNavbar";
 
 export {
-  Navbar,
   Dropdown,
   TabPanel,
   Switch,
   Modal,
-  InputField,
-  Form,
   RegisterForm,
   SubmitButton,
   RegisterInputField,
@@ -38,6 +34,8 @@ export {
   DeleteButton,
   Logo,
   ProfileDropdown,
-  ActionsDropdown,
   SearchInput,
+  SecondaryNavbar,
+  Template,
+  PrimaryNavbar,
 };
