@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Switch as Toggle } from "@headlessui/react";
-import { useAppState } from "../context/AppState";
+import { ApplicationContext } from "../context/ApplicationContext";
 
 type PropTypes = {
-  id: number;
+  id: string;
   enabled: boolean;
 };
 
 const Switch = ({ enabled, id }: PropTypes) => {
-  const { toggleStatus } = useAppState();
+  const { toggleStatus } = useContext(ApplicationContext);
 
   return (
     <Toggle

@@ -2,20 +2,19 @@ import React, { useContext, useEffect } from "react";
 import { Tab } from "@headlessui/react";
 import { useAppState } from "../context/AppState";
 import { TabPanel, Loader, TabButton } from "../components";
-
-type TaskType = {
-  id: string;
-  name: string;
-  desc: string;
-  date: string;
-  active: boolean;
-};
+import { ApplicationContext } from "../context/ApplicationContext";
+import { Assignment } from "../types/types";
 
 const Tasks = () => {
-  const { fetchAllTasks, all_tasks, pending } = useAppState();
+  const { globalState, fetchAllTasks } = useContext(ApplicationContext);
+  const { all_tasks, pending } = globalState;
 
-  const completed_tasks = all_tasks.filter((task: TaskType) => !task.active);
-  const active_tasks = all_tasks.filter((task: TaskType) => task.active);
+  const completed_tasks = all_tasks.filter(
+    (assignment: Assignment) => !assignment.active
+  );
+  const active_tasks = all_tasks.filter(
+    (assignment: Assignment) => assignment.active
+  );
 
   useEffect(() => {
     fetchAllTasks();

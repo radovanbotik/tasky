@@ -9,7 +9,7 @@ const RegisterInputField = ({
   touched,
   errors,
   children,
-}: PropTypes) => {
+}) => {
   return (
     <div>
       {children && (

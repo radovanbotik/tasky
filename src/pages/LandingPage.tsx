@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { RegisterForm, Intro } from "../components";
 import { useNavigate } from "react-router-dom";
-import { useAppState } from "../context/AppState";
 import { Modal } from "../components/";
+import { ApplicationContext } from "../context/ApplicationContext";
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const { user } = useAppState();
+  const { globalState } = useContext(ApplicationContext);
+  const { user } = globalState;
 
   useEffect(() => {
     if (user) {

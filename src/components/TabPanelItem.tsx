@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import Switch from "./Switch";
 import DeleteButton from "./DeleteButton";
-import { useAppState } from "../context/AppState";
+import { Assignment } from "../types/types";
+import { ApplicationContext } from "../context/ApplicationContext";
 
-interface Props {
+const TabPanelItem = ({
+  name,
+  id,
+  desc,
+  date,
+  active,
+}: {
   name: string;
-  id: number;
+  id: string;
   desc: string;
   date: string;
   active: boolean;
-}
-
-const TabPanelItem = ({ name, id, desc, date, active }: Props) => {
-  const { deleteTask } = useAppState();
-
+}) => {
   return (
     <div className="relative rounded-md p-3 hover:bg-gray-100" key={id}>
       <h3 className="text-sm font-medium leading-5">{name}</h3>
@@ -26,9 +29,7 @@ const TabPanelItem = ({ name, id, desc, date, active }: Props) => {
       </ul>
       <div className="flex justify-between">
         <Switch enabled={active} id={id} />
-        <DeleteButton id={id} deleteTask={deleteTask}>
-          Delete
-        </DeleteButton>
+        <DeleteButton id={id}>Delete</DeleteButton>
       </div>
     </div>
   );

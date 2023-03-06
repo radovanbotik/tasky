@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useAppState } from "../context/AppState";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { InputField } from "../components";
+import { ApplicationContext } from "../context/ApplicationContext";
 
 const Form = () => {
-  const { createNewTask } = useAppState();
+  const { createNewTask } = useContext(ApplicationContext);
 
   const { values, touched, handleSubmit, errors, handleBlur, handleChange } =
     useFormik({
@@ -13,7 +14,6 @@ const Form = () => {
         name: "",
         desc: "",
         date: "",
-        active: true,
       },
       validationSchema: Yup.object({
         name: Yup.string()

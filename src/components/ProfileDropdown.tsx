@@ -1,9 +1,9 @@
-import React from "react";
-import { useAppState } from "../context/AppState";
+import React, { useContext } from "react";
+import { ApplicationContext } from "../context/ApplicationContext";
 
 const ProfileDropdown = () => {
-  const { retrieveUser } = useAppState();
-
+  const { globalState } = useContext(ApplicationContext);
+  const { user } = globalState;
   return (
     <div className="flex-none gap-2">
       <div className="dropdown-end dropdown">
@@ -12,9 +12,9 @@ const ProfileDropdown = () => {
           className="btn-ghost btn-circle avatar btn bg-fuchsia-400"
         >
           <div className="w-10 rounded-full">
-            {retrieveUser() && (
+            {user.email && (
               <p className="grid h-full w-full place-content-center text-center text-xl font-bold">
-                {retrieveUser().charAt(1)}
+                {user.email.charAt(1)}
               </p>
             )}
           </div>

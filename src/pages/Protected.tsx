@@ -1,13 +1,14 @@
-import React from "react";
-import { useAppState } from "../context/AppState";
+import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
+import { ApplicationContext } from "../context/ApplicationContext";
 
 type PropTypes = {
   children: JSX.Element;
 };
 
 const Protected = ({ children }: PropTypes) => {
-  const { user } = useAppState();
+  const { globalState } = useContext(ApplicationContext);
+  const { user } = globalState;
 
   if (!user) {
     return <Navigate to="/"></Navigate>;

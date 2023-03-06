@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import YupPassword from "yup-password";
-import { useAppState } from "../context/AppState";
 import SubmitButton from "./SubmitButton";
 import RegisterInputField from "./RegisterInputField";
+import { ApplicationContext } from "../context/ApplicationContext";
 
 YupPassword(Yup); // extend yup
 
 const RegisterForm = () => {
-  const { loginUser, registerUser } = useAppState();
+  const { loginUser, registerUser } = useContext(ApplicationContext);
   const [member, setMember] = useState(false);
 
   const { values, touched, errors, handleBlur, handleChange, handleSubmit } =

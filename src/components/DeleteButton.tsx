@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ApplicationContext } from "../context/ApplicationContext";
 
 type Props = {
   children: React.ReactNode;
-  id: number;
-  deleteTask: (id: number) => void;
+  id: string;
 };
 
-const DeleteButton = ({ children, deleteTask, id }: Props) => {
+const DeleteButton = ({ children, id }: Props) => {
+  const { deleteTask } = useContext(ApplicationContext);
   return (
     <button className="btn-error btn" onClick={() => deleteTask(id)}>
       {children}
